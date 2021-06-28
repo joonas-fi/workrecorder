@@ -77,6 +77,9 @@ func logic(ctx context.Context, logger *log.Logger) error {
 
 		return filepath.Join(renderersDir, renderers[0].Name()), nil
 	}()
+	if err != nil {
+		return err
+	}
 
 	xutil, connectedOutputs, err := connectX11AndGetConnectedOutputs()
 	if err != nil {
