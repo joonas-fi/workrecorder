@@ -16,6 +16,9 @@ Sometimes it's beneficial to go "back in time" to see what was on your screen. L
   and publish daily cryptographic digests to some kind of public ledger. That means people can't see
   what was on my screen, but I can cryptographically prove so should I want to disclose something.
 
+Note: you're an asshole if you use this tech on somebody else's computer without their knowledge
+("stalkerware") or for your employee's computer (unless they actually **want** to use this).
+
 
 How to run
 ----------
