@@ -13,6 +13,7 @@ import (
 	"github.com/BurntSushi/xgbutil/xwindow"
 )
 
+//nolint:unused,deadcode
 func newDrawable(X *xgbutil.XUtil, did xproto.Drawable) (*xgraphics.Image, error) {
 	// Get the geometry of the pixmap for use in the GetImage request.
 	pgeom, err := xwindow.RawGeometry(X, xproto.Drawable(did))
@@ -82,9 +83,19 @@ func readDrawableData(X *xgbutil.XUtil, ximg *xgraphics.Image, did xproto.Drawab
 			for x := 0; x < width; x++ {
 				b := imgData.Data[i+x/8] >> uint(x%8)
 				if b&1 > 0 { // opaque
-					ximg.Set(x, y, xgraphics.BGRA{0x0, 0x0, 0x0, 0xff})
+					ximg.Set(x, y, xgraphics.BGRA{
+						B: 0x0,
+						G: 0x0,
+						R: 0x0,
+						A: 0xff,
+					})
 				} else { // transparent
-					ximg.Set(x, y, xgraphics.BGRA{0xff, 0xff, 0xff, 0x0})
+					ximg.Set(x, y, xgraphics.BGRA{
+						B: 0xff,
+						G: 0xff,
+						R: 0xff,
+						A: 0x0,
+					})
 				}
 			}
 		}
